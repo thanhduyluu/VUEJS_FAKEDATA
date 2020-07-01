@@ -11,8 +11,8 @@ Repo bao gồm 3 container:
 
 Mở CMD tại thư mục VUEJS_FAKDATA và lần lượt chạy các command sau:
   
-   docker-compose build
+   - docker-compose build
    
-   docker-compose up -d
+   - docker-compose up -d
 
 Allow port 80 trên máy để các máy khác có thể truy cập vào.
