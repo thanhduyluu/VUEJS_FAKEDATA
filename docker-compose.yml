@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  flask:
+    restart: always
+    build: ./flask
+    container_name: flask
+    ports:
+      - "5000:5000"
+    networks:
+      docker-network:
+        aliases:
+          - flask
+  vuejs:
+    restart: always
+    build: ./vuejs
+    container_name: vuejs
+    ports:
+      - "3000:3000"
+    networks:
+      docker-network:
+        aliases:
+          - vuejs
+  nginx:
+    restart: always
+    container_name: nginx_reverseproxy
+    build: ./nginx
+    ports:
+      - "80:80"
+    networks:
+      - docker-network
+    depends_on:
+      - flask
+      - vuejs
+
+networks:
+    docker-network:
